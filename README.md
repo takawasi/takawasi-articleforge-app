@@ -120,3 +120,16 @@ electron-builder.yml # パッケージング設定
 ## ライセンス / License
 
 MIT License — Copyright 2026 takawasi
+
+---
+
+## 事業者様 — LLM 統合・AI 開発のご相談 / For Businesses — LLM & AI Development Consultation
+
+**格安で、質が高い。 / Affordable, high quality.**
+
+LLM エージェント（TBA）、デスクトップアプリ、コンテンツ生成、決済基盤、MCP サーバ等の統合開発をご検討の事業者様、初回相談無料です。
+
+We offer free initial consultations for businesses considering LLM agents (TBA), desktop apps, content generation, payment infrastructure, MCP servers, and more.
+
+- 無料相談フォーム / Free consultation form: <https://takawasi-social.com/consultation/>
+- X (旧 Twitter) DM: [@takawasi_heintz](https://x.com/takawasi_heintz)
