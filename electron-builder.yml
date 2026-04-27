@@ -1,0 +1,56 @@
+appId: com.takawasi.articleforge
+productName: Takawasi ArticleForge App
+copyright: Copyright 2026 takawasi
+
+# No code signing (OSS GitHub distribution, open-source)
+# mac: gatekeeper workaround documented in README and promo page
+# win: SmartScreen warning acknowledged — users click "More info" > "Run anyway"
+
+directories:
+  output: release
+  buildResources: assets
+
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+
+extraResources:
+  - from: dist/cli
+    to: cli
+    filter:
+      - "**/*"
+
+mac:
+  artifactName: Takawasi-ArticleForge-App-mac-${arch}.${ext}
+  category: public.app-category.productivity
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  identity: null
+
+win:
+  artifactName: Takawasi-ArticleForge-App-win-${arch}.${ext}
+  target:
+    - target: nsis
+      arch:
+        - x64
+
+linux:
+  artifactName: Takawasi-ArticleForge-App-linux-${arch}.${ext}
+  target:
+    - target: AppImage
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true

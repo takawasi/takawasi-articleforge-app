@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            command: npm run dist:linux
+          - os: windows-latest
+            command: npm run dist:win
+          - os: macos-latest
+            command: npm run dist:mac
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: ${{ matrix.command }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: release/*
